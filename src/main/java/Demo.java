@@ -1,5 +1,7 @@
 package main.java;
 
+import main.java.business.facede.BusinessFacede;
+import main.java.business.facede.BusinessFacedeImpl;
 import main.java.model.Musteri;
 
 import javax.persistence.EntityManager;
@@ -28,6 +30,19 @@ public class Demo {
     public static void main(String[] args) {
 
 
+        BusinessFacede businessFacede = new BusinessFacedeImpl();
+        System.out.println(businessFacede.musteriBul(1).toString());
+
+
+
+
+//        copBilgi();
+
+
+//        insert();
+    }
+
+    private static void copBilgi() {
         EntityManager entityMgr = getEntityManager();
         entityMgr.getTransaction().begin();
 
@@ -55,10 +70,6 @@ public class Demo {
 
         System.out.println("1");
         entityMgr.getTransaction().commit();
-
-
-
-//        insert();
     }
 
     private static void insert() {

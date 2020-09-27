@@ -15,21 +15,31 @@ public class MusteriBusinessServiceImpl implements MusteriBusinessService {
 
     @Override
     public List<Musteri> musteriListele(Musteri musteriKriter) {
-        return null;
+        List<Musteri> musteriList = null;
+        musteriList = DAOFactory.instance().musteriListele(musteriKriter);
+
+        return musteriList;
     }
 
     @Override
     public String musteriGuncelle(Musteri musteri) {
-        return null;
+        String result = null;
+        result = DAOFactory.instance().musteriGuncelle(musteri);
+        return result;
     }
 
     @Override
-    public Musteri musteriBul(int ID) {
-        return null;
+    public Musteri musteriBul(int id) {
+        Musteri musteri = null;
+        musteri = DAOFactory.instance().musteriBul(id);
+        return musteri;
     }
 
     @Override
-    public String musteriSil(int ID) {
-        return null;
+    public String musteriSil(int id) {
+
+        String result = null;
+        result = DAOFactory.instance().musteriSil(id);
+        return result;
     }
 }

@@ -59,26 +59,53 @@ public class MusteriDAOImpl implements  MusteriDAO{
 
         entityMgr.getTransaction().commit();
         entityMgr.clear();
-
+        entityMgr.close();
         return musteriList;
     }
 
     @Override
     public Musteri musteriBul(int id) {
 
+        EntityManager entityMgr = getEntityManager();
+        entityMgr.getTransaction().begin();
 
-        return null;
+        Musteri musteri = entityMgr.find(Musteri.class, id);
+        entityMgr.getTransaction().commit();
+        entityMgr.clear();
+        entityMgr.close();
+
+        return musteri;
+
     }
 
     @Override
     public String musteriSil(int id) {
-        return null;
+
+        EntityManager entityMgr = getEntityManager();
+        entityMgr.getTransaction().begin();
+
+        entityMgr.remove(musteriBul(id));
+        entityMgr.getTransaction().begin();
+        entityMgr.clear();
+        entityMgr.close();
+
+        return "Successful";
     }
 
     @Override
-    public String musteriGuncelle(Musteri musteri) {
+    public String musteriGuncelle(Musteri musteriNewInfo) {
+        EntityManager entityMgr = getEntityManager();
+        entityMgr.getTransaction().begin();
 
+        Musteri musteri = entityMgr.find(Musteri.class, musteriNewInfo.getID());
+        musteri.setEvlilikDurumu(musteriNewInfo.getEvlilikDurumu());
+        musteri.setSoyadi(musteriNewInfo.getSoyadi());
+        musteri.setAdi(musteriNewInfo.getAdi());
 
-        return null;
+        entityMgr.getTransaction().commit();
+        entityMgr.clear();
+        entityMgr.close();
+
+        return "Succesfull";
     }
 }

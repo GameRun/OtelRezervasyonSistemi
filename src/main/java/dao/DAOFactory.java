@@ -2,6 +2,8 @@ package main.java.dao;
 
 import main.java.model.Musteri;
 
+import java.util.List;
+
 public class DAOFactory {
 
     public static DAOFactory factory;
@@ -36,4 +38,11 @@ public class DAOFactory {
         return getMusteriDAO().musteriKayit(musteri);
     }
 
+    public Musteri musteriBul(int id){ return getMusteriDAO().musteriBul(id); }
+
+    public List<Musteri> musteriListele(Musteri musteri){ return getMusteriDAO().musteriListele(musteri);}
+
+    public String musteriGuncelle(Musteri musteri){ return getMusteriDAO().musteriGuncelle(musteri);}
+
+    public String musteriSil(int id){ return getMusteriDAO().musteriSil(id);}
 }
