@@ -35,11 +35,6 @@ public class Demo {
 
 
 
-
-//        copBilgi();
-
-
-//        insert();
     }
 
     private static void copBilgi() {

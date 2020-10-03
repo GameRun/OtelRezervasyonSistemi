@@ -85,7 +85,7 @@ public class MusteriDAOImpl implements  MusteriDAO{
         entityMgr.getTransaction().begin();
 
         entityMgr.remove(musteriBul(id));
-        entityMgr.getTransaction().begin();
+        entityMgr.getTransaction().commit();
         entityMgr.clear();
         entityMgr.close();
 
@@ -106,6 +106,6 @@ public class MusteriDAOImpl implements  MusteriDAO{
         entityMgr.clear();
         entityMgr.close();
 
-        return "Succesfull";
+        return "Basarili";
     }
 }
